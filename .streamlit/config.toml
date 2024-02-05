@@ -1,0 +1,20 @@
+# .streamlit/config.toml
+
+[theme]
+# Base theme: light or dark
+base="light"
+
+#Primary color: Used for the main elements and buttons
+primaryColor="#2678EC"  # A nice shade of blue that stands out
+
+#Background color: Used for the main background
+backgroundColor="#FFFFFF"  # White background for a clean look
+
+#Secondary background color: Used for background of widgets
+secondaryBackgroundColor="#F1F3F4"  # Light grey to subtly distinguish elements
+
+#Text color: Used for the color of all text
+textColor="#0F1117"  # Dark grey for good contrast and readability
+
+#Font: The font family of all text in the app
+font="sans serif"  # A sans-serif font for a modern, clean appearance

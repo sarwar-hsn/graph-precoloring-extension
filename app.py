@@ -245,7 +245,7 @@ with tab1:
             if selected_algorithm == 'Hybrid-BacktrackingDsaturs':
                 k = st.number_input("Number of colors you want",value=round(nodes*.24))
     
-    if st.button("RUN THE ALGORITHM", use_container_width=True,type="primary"):
+    if st.button("RUN THE ALGORITHM", use_container_width=True,type="primary",key='runbtn'):
         if uploaded_file:
             G = nx.Graph()
             G.add_edges_from(edge_list)
@@ -323,7 +323,7 @@ with tab3:
     with col1:
         min_node = st.number_input("Min Num of Nodes",value=50)
     with col2:
-        max_node = st.number_input("Max Num of Nodes",value=50)
+        max_node = st.number_input("Max Num of Nodes",value=500)
     with col3:
         node_stepper = st.number_input("Stepper in Iteration",value=50)
     with col4:
@@ -339,8 +339,11 @@ with tab3:
 
     if st.button("Run Analysis",type="primary",use_container_width=True):
         with st.spinner(text="Running Analysis Please Wait..."):
-            df = analysis(min_node,max_node,node_stepper,min_ep,max_ep,ep_stepper,random_precolored_node)
-            exc_fig,color_fig=plot_analysis(df)
-            st.pyplot(exc_fig)
-            st.pyplot(color_fig)
-            st.write(df)
+            try:
+                df = analysis(min_node,max_node,node_stepper,min_ep,max_ep,ep_stepper,random_precolored_node)
+                exc_fig,color_fig=plot_analysis(df)
+                st.pyplot(exc_fig)
+                st.pyplot(color_fig)
+                st.write(df)
+            except:
+                st.warning("Couldn't generate report")
